@@ -11,5 +11,11 @@
       "48": "icon.png",
       "128": "icon.png"
     }
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.trademe.co.nz/a/property/*"],
+      "js": ["content.js"]
+    }
+  ]
 }
