@@ -12,11 +12,6 @@ const updateTgColElements = () => {
       .getAttribute("data-aria-id")
       .split("-")[1];
 
-    const addressSubtitle = listing.querySelector(
-      "tm-property-search-card-address-subtitle"
-    );
-    addressSubtitle.style.color = "blue";
-
     const listedDateContainer = listing.getElementsByTagName(
       "tm-property-search-card-listed-date"
     )[0];
