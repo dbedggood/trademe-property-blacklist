@@ -30,6 +30,14 @@ const updateTgColElements = () => {
 
     const button = document.createElement("button");
     button.textContent = "Hide Listing";
+    button.style.backgroundColor = "rgba(196, 192, 188, 0.25)";
+    button.style.border = "none";
+    button.style.borderRadius = "0.25rem";
+    button.style.padding = "0.25rem 0.5rem";
+    button.style.color = "rgb(217, 58, 63)";
+    button.style.fontSize = "14px";
+    button.style.fontWeight = "700";
+
     button.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
