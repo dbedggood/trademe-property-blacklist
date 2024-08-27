@@ -3,14 +3,12 @@ console.log("Content script loaded");
 const blacklist = JSON.parse(localStorage.getItem("blacklist") ?? "[]");
 
 const updateTgColElements = () => {
-  const listings = document.getElementsByTagName(
-    "tm-property-premium-listing-card"
-  );
+  const listings = document.getElementsByTagName("tm-search-card-switcher");
 
   for (let i = 0; i < listings.length; i++) {
     const listing = listings[i];
 
-    const listingId = listing.firstElementChild
+    const listingId = listing.firstElementChild.firstElementChild
       .getAttribute("data-aria-id")
       .split("-")[1];
 
@@ -19,8 +17,8 @@ const updateTgColElements = () => {
     );
     addressSubtitle.style.color = "blue";
 
-    const listedDateContainer = listing.getElementsByClassName(
-      "tm-property-premium-listing-card__pre-title-container"
+    const listedDateContainer = listing.getElementsByTagName(
+      "tm-property-search-card-listed-date"
     )[0];
 
     const isListingBlocked = blacklist?.includes(listingId);
@@ -39,6 +37,7 @@ const updateTgColElements = () => {
         console.log("ALREADY BLOCKED", listingId);
         return;
       }
+
       console.log("BLOCKED", listingId);
       listing.style.filter = "grayscale(1)";
       localStorage.setItem(
