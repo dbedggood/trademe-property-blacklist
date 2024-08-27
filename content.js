@@ -16,6 +16,12 @@ const updateTgColElements = () => {
       "tm-property-search-card-listed-date"
     )[0];
 
+    listedDateContainer.parentElement.style.flex = "1";
+    listedDateContainer.style.width = "100%";
+    listedDateContainer.style.display = "flex";
+    listedDateContainer.style.alignItems = "center";
+    listedDateContainer.style.justifyContent = "space-between";
+
     const isListingBlocked = blacklist?.includes(listingId);
 
     if (isListingBlocked) {
